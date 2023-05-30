@@ -5,6 +5,7 @@
 ## 環境構築(整備中)
 
 Cargo と WebAssembly ランタイムがインストールされている必要がある．
+また，Rust ツールチェインの wasm32-wasi ターゲットをインストールする必要がある．
 
 ## 使い方
 
@@ -12,6 +13,13 @@ Cargo と WebAssembly ランタイムがインストールされている必要�
 
 ```sh
 git clone https://github.com/ShukiSasakura/dice-cli.git
+```
+
+次に，ディレクトリに入り，ビルドを行う．
+
+```sh
+cd dice-cli
+cargo build --target wasm32-wasi
 ```
 
 WebAssembly ランタイムでシミュレータを実行する．
@@ -23,7 +31,6 @@ wasmedge target/wasm32-wasi/debug/dice.wasm
 ```
 
 起動した後，ダイスの個数と面の数をダイスコードで入力する（例：2d6）．
-
 指定した個数と同じ回数ランダムな数が表示され，最後に合計値が表示される．
 
 ### 実行例
